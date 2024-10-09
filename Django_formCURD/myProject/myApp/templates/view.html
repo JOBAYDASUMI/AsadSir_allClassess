@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, td, th {  
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 15px;
+}
+</style>
+</head>
+<body>
+
+<h2>Data View</h2>
+
+<table>
+    <tr>
+        <th>User Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Actions</th>
+    </tr>
+    
+    {% for i in data %}
+           
+    <tr>
+        <td>{{i.Username}}</td>
+        <td>{{i.Uemail}}</td>
+        <td>{{i.Upassword}}</td>
+        <td>
+            <a href="{% url 'EditForm' i.id %}">Edit</a>
+            <a href="{% url 'Delete' i.id %}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+</html>
